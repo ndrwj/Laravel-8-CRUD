@@ -38,9 +38,8 @@ pipeline {
 
         stage("Remove old image") {
             steps {
-                sh "docker rmi ndrwj/laravel8-test"
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "exit 1"
+                    sh "docker rmi ndrwj/laravel8-test"
                 }
             }
         }
