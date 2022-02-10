@@ -13,7 +13,7 @@ pipeline {
                 DB_HOST = "laravel-mysql"
                 DB_DATABASE = "dblaravel"
                 DB_USERNAME = "root"
-                DB_PASSWORD = "credentials("mysql-password")
+                DB_PASSWORD = credentials("mysql-password")
             }
             steps {
                 sh 'echo DB_HOST=${DB_HOST}'
