@@ -12,7 +12,7 @@ pipeline {
             environment {
                 DB_HOST = credentials("laravel-mysql")
                 DB_DATABASE = credentials("dblaravel")
-                DB_USERNAME = credentials("root")
+            //    DB_USERNAME = credentials("root")
                 DB_PASSWORD = credentials("password123")
             }
             steps {
