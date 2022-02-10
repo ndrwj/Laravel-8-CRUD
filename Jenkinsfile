@@ -4,7 +4,7 @@ pipeline {
 
         stage('Checkout Source') {
             steps {
-                git url:'https://github.com/vamsijakkula/hellowhale.git', branch:'master'
+                git url:'https://github.com/ndrwj/Laravel-8-CRUD.git', branch:'master'
             }
         }
 
@@ -57,12 +57,12 @@ pipeline {
         stage('Deploy App to k8s') {
             steps {
                 script {
-                    kubernetesDeploy(configs: "laravel.yml", kubeconfigId: "mykubeconfig")
-                    }
+                    kubernetesDeploy(configs: "laravel.yaml", kubeconfigId: "mykubeconfig")
                 }
             }
-
-
         }
+
+
     }
 }
+
