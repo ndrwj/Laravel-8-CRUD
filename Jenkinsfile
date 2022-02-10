@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 sh 'php --version'
-                sh 'composer install'
+                sh 'composer install --ignore-platform-reqs'
                 sh 'composer --version'
                 sh 'cp .env.example .env'
                 sh 'echo DB_HOST=${DB_HOST} >> .env'
