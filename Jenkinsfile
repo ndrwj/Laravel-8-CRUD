@@ -36,9 +36,15 @@ pipeline {
             }
         }
 
-        stage("Docker build") {
+        stage("Remove old image") {
             steps {
                 sh "docker rmi ndrwj/laravel8-test"
+                sh "exit 1"
+            }
+        }
+
+        stage("Docker build") {
+            steps {
                 sh "docker build -t ndrwj/laravel8-test ."
             }
         }
