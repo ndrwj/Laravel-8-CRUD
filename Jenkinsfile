@@ -10,10 +10,10 @@ pipeline {
 
         stage("Build") {
             environment {
-                DB_HOST = credentials("laravel-mysql")
-                DB_DATABASE = credentials("dblaravel")
+                DB_HOST = "laravel-mysql"
+                DB_DATABASE = "dblaravel"
             //    DB_USERNAME = credentials("root")
-                DB_PASSWORD = credentials("password123")
+                DB_PASSWORD = "password123"
             }
             steps {
                 sh 'echo DB_HOST=${DB_HOST}'
