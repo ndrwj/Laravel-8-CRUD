@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-laravel
+  labels:
+    app: test-laravel
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30007
+  selector:
+    app: laravel
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel
+  labels:
+    app: laravel
+spec:
+  selector:
+    matchLabels:
+      app: laravel
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      containers:
+      - image: ndrwj/laravel8-test
+        name: laravel
+        ports:
+        - containerPort: 80
+          name: laravel
