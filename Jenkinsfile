@@ -47,8 +47,9 @@ pipeline {
         stage("Docker build") {
             steps {
 //              sh "docker build -t ndrwj/laravel8-test ."
-                myapp = docker.build("ndrwj/laravel8-test:${env.BUILD_ID}")
-
+                script {
+                    myapp = docker.build("ndrwj/laravel8-test:${env.BUILD_ID}")
+                }
             }
         }
 
