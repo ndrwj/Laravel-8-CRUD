@@ -49,4 +49,6 @@ RUN chmod +x /var/www/tmp/docker-entrypoint.sh
 ENTRYPOINT ["/var/www/tmp/docker-entrypoint.sh"]
 
 # The default apache run command
+CMD ["php", "artisan", "migrate"]
+
 CMD ["apache2-foreground"]
