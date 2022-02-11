@@ -67,7 +67,7 @@ pipeline {
         stage('Deploy App to k8s') {
             steps {
                 script {
-                    kubernetesDeploy(configs: "laravel.yaml", kubeconfigId: "mykubeconfig")
+                    kubernetesDeploy(configs: "apps.yml", kubeconfigId: "mykubeconfig")
                 }
             }
         }
